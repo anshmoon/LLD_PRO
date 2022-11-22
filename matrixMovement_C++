@@ -1,0 +1,28 @@
+class direction_change {
+	int x[4] = {0, 1, 0, -1};
+	int y[4] = {1, 0, -1, 0};
+//right(0) down(1) left(2) up(3)
+public:
+	pair<int, int> giveNextCordinat(int X, int Y, int direction) {
+
+		pair<int, int> ans = {X + x[direction], Y + y[direction]};
+		return ans;
+	}
+
+	int giveNextDirection(int prevDirection, string turn) {
+		int ans = -1;
+		if (turn == "Left") {
+			if (prevDirection == 0) return 3;
+			if (prevDirection == 1) return 0;
+			if (prevDirection == 2) return 1;
+			if (prevDirection == 3) return 2;
+		}
+		else {
+			if (prevDirection == 0) return 1;
+			if (prevDirection == 1) return 2;
+			if (prevDirection == 2) return 3;
+			if (prevDirection == 3) return 0;
+		}
+		return ans;
+	}
+};
